@@ -18,7 +18,14 @@ var hotjs = hotjs || {};
             res.load();
             this.res_cache[ id ] = res;
         },
-
+        preloadSimpleRawResource: function(id, rawResourceName, success, fail) {
+            var res = new Audio();
+            res.addEventListener('canplaythrough', success, false);
+            res.onerror = fail;
+            res.setAttribute('src', 'res/raw/' + rawResourceName);
+            res.load();
+            this.res_cache[ id ] = res;
+        },
         preloadComplex: function(id, assetPath, volume, voices, delay, success, fail) {
             var res = new Audio();
             res.addEventListener('canplaythrough', success, false);

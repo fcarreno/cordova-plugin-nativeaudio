@@ -9,6 +9,14 @@ exports.preloadSimple = function(id, assetPath, success, fail) {
     res.load();
     __res_cache[ id ] = res;
 };
+exports.preloadSimpleRawResource = function(id, rawResourceName, success, fail) {
+    var res = new Audio();
+    res.addEventListener('canplaythrough', success, false);
+    res.onerror = fail;
+    res.setAttribute('src', 'res/raw/' + rawResourceName);
+    res.load();
+    __res_cache[ id ] = res;
+};
 
 exports.preloadComplex = function(id, assetPath, volume, voices, delay, success, fail) {
     var res = new Audio();

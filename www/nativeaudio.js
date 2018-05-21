@@ -31,7 +31,10 @@ module.exports  = {
 
         return cordova.exec(successCallback, errorCallback, "NativeAudio", "preloadSimple", [id, assetPath]);
     },
-    
+    preloadSimpleRawResource: function(id, rawResourceName, successCallback, errorCallback) {
+
+    return cordova.exec(successCallback, errorCallback, "NativeAudio", "preloadSimpleRawResource", [id, rawResourceName]);
+    },
     preloadComplex: function(id, assetPath, volume, voices, delay, successCallback, errorCallback) {
 
         return cordova.exec(successCallback, errorCallback, "NativeAudio", "preloadComplex", [id, assetPath, parseFloat(volume), voices, parseFloat(delay)]);
